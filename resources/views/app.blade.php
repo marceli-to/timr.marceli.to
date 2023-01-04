@@ -8,7 +8,7 @@
 </head>
 <body class="antialised">
   <div class="flex justify-center items-center h-screen">
-	  <div id="app"></div>
+	  <div id="app" class="px-12"></div>
   </div>
 </body>
 </html>

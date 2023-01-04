@@ -1,3 +1,3 @@
 <template>
-  TIMR – marceli.to
+  <div>TIMR – marceli.to</div>
 </template>
