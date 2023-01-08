@@ -7,8 +7,19 @@
 @vite('resources/js/app.js')
 </head>
 <body class="antialised">
+  <div>
+    @auth
+      <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <x-button type="submit" label="{{ __('Logout') }}" name="logout" />
+      </form>
+    @endauth
+    @guest 
+      <a href="{{ route('login') }}">Login</a>
+    @endguest
+  </div>
   <div class="flex justify-center items-center h-screen">
-	  <div id="app" class="px-12"></div>
+	  <div id="app"></div>
   </div>
 </body>
 </html>
