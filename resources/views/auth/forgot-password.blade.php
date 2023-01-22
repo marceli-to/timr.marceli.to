@@ -7,11 +7,14 @@
 </div>
 <x-form method="POST" action="{{ route('password.email') }}">
   @if (session('status'))
-    <div class="mb-4 font-medium text-sm text-green-600">
+    <div class="mb-4 text-sm text-green-600">
       {{ session('status') }}
     </div>
   @endif
   <x-input label="{{ __('E-Mail') }}" type="email" name="email" required />
   <x-button label="{{ __('Request password') }}" type="submit" name="request-password" />
+  <a href="{{ route('login') }}" class="helper-link">
+    {{ __('Back to login') }}
+  </a>
 </x-form>
 @endsection

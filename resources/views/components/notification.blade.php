@@ -1,3 +1,3 @@
-<div class="{{ $style == 'success' ? '' : '' }}">
+<div {{ $attributes }}>
   {{ $slot }}
 </div>

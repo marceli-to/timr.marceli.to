@@ -3,14 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TIMR - marceli.to</title>
+<title>⏰ timr</title>
 @vite('resources/js/app.js')
 </head>
-<body class="antialised h-full">
-  <div class="auth">
-    <div class="w-full max-w-sm space-y-8">
-      @yield('content')
-    </div>
+<body class="antialised h-full auth">
+  <div class="w-full max-w-sm space-y-8">
+    @yield('content')
   </div>
 </body>
 </html>

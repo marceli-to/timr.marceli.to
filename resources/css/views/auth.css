@@ -16,5 +16,5 @@
 }
 
 .auth form {
-  @apply bg-white shadow-sm border border-gray-100 border-t-0 rounded-md mt-8 py-8 px-8 pt-6
+  @apply bg-white shadow-sm border border-gray-100 rounded-md mt-8 py-8 px-8 pt-6
 }

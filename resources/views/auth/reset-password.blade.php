@@ -8,7 +8,7 @@
 <x-form method="POST" action="{{ route('password.update') }}">
   <input type="hidden" name="token" value="{{ request()->route('token') }}" />
   @if (session('status'))
-    <div class="mb-4 font-medium text-sm text-green-600">
+    <div class="mb-4 text-sm text-green-600">
         {{ session('status') }}
     </div>
   @endif

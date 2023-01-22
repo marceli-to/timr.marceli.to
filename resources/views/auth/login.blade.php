@@ -7,8 +7,8 @@
 </div>
 <x-form method="POST" action="{{ route('login') }}">
   @if ($errors->any())
-    <x-notification style="error">
-      <h2>{{ __('Es ist ein Fehler aufgetreten.') }}</h2>
+    <x-notification style="error" class="mb-4 text-sm text-red-600">
+      <strong class="block font-bold">{{ __('Es ist ein Fehler aufgetreten.') }}</strong>
       <ul>
         @foreach($errors->all() as $error)
           <li>
@@ -20,7 +20,7 @@
   @endif
 
   @if (session('status'))
-    <div class="mb-4 font-medium text-sm text-green-600">
+    <div class="mb-4 text-sm text-green-600">
       {{ session('status') }}
     </div>
   @endif
