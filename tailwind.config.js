@@ -5,11 +5,12 @@ module.exports = {
   content: [
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
+    "./resources/**/*.vue",
   ],
   theme: {
     extend: {
       colors: {
-        'electric-violet': {
+        'primary': {
           '50': '#f3f1ff',
           '100': '#ebe5ff',
           '200': '#d9ceff',
@@ -24,6 +25,7 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
       },
     },
   },

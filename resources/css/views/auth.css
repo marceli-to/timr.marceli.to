@@ -12,7 +12,7 @@
 }
 
 .auth a.helper-link {
-  @apply inline-block mt-6 text-sm text-electric-violet-400 hover:underline underline-offset-4
+  @apply inline-block mt-6 text-sm text-primary-400 hover:underline underline-offset-4
 }
 
 .auth form {
