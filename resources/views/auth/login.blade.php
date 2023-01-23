@@ -1,7 +1,7 @@
 @extends('auth.layout')
 @section('content')
 <div>
-  <x-logo class="mx-auto h-16 mb-8 w-auto" />
+  <x-logo class="mx-auto h-12 mb-8 w-auto" />
   <h2>{{ __('Sign in to your account') }}</h2>
   <p>{{ __('Use the provided email and password') }}</p>
 </div>

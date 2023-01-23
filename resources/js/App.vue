@@ -54,7 +54,8 @@
     </nav>
     <div class="bg-gray-50 flex-1">
       <header class="h-12 p-6 pt-4">
-        <div class="w-full max-w-5xl flex justify-end ">
+        <div class="w-full max-w-5xl flex items-center justify-between">
+          <h2 class="text-xs font-mono font-bold text-primary">Clients</h2>
           <div class="w-full max-w-sm relative">
             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
             <magnifier />
@@ -77,17 +78,27 @@
                 <td class="bg-white group-hover:bg-gray-50 p-4">Agentur für Kommunikation</td>
                 <td class="bg-white group-hover:bg-gray-50 p-4">Zürich</td>
                 <td class="bg-white group-hover:bg-gray-50 p-4">
-                  <div class="bg-yellow-200 text-yellow-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Inaktiv</div>
+                  <div class="bg-yellow-200 text-yellow-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Pendent</div>
+                </td>
+                <td class="text-right bg-white group-hover:bg-gray-50 p-4">
+                  <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
+                </td>
+              </tr>
+              <tr class="border-b border-gray-100 group">
+                <td class="bg-white group-hover:bg-gray-50 p-4">AhornGarten</td>
+                <td class="bg-white group-hover:bg-gray-50 p-4">Russikon</td>
+                <td class="bg-white group-hover:bg-gray-50 p-4">
+                  <div class="bg-green-200 text-green-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Aktiv</div>
                 </td>
                 <td class="text-right bg-white group-hover:bg-gray-50 p-4">
                   <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
                 </td>
               </tr>
               <tr class="group">
-                <td class="bg-white group-hover:bg-gray-50 p-4">AhornGarten</td>
-                <td class="bg-white group-hover:bg-gray-50 p-4">Russikon</td>
+                <td class="bg-white group-hover:bg-gray-50 p-4">Cham Group AG</td>
+                <td class="bg-white group-hover:bg-gray-50 p-4">Winterthur</td>
                 <td class="bg-white group-hover:bg-gray-50 p-4">
-                  <div class="bg-green-200 text-green-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Aktiv</div>
+                  <div class="bg-red-200 text-red-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Inaktiv</div>
                 </td>
                 <td class="text-right bg-white group-hover:bg-gray-50 p-4">
                   <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
