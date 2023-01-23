@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen">
-    <nav class="bg-white border-r border-gray-100 w-48 p-4 pt-6 flex flex-col justify-between items-start group">
+    <nav class="bg-white border-r border-gray-100 w-auto p-4 pr-6 pt-6 flex flex-col justify-between items-start group">
       <div class="w-full">
         <logo class="w-32 h-auto block" />
         <div class="mt-8 mb-2 font-mono text-xs text-gray-300 uppercase tracking-widest">Track</div>
@@ -53,12 +53,14 @@
       </div>
     </nav>
     <div class="bg-gray-50 flex-1">
-      <header class="h-12 p-6">
-        <div class="w-full max-w-5xl flex justify-start relative">
-          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+      <header class="h-12 p-6 pt-4">
+        <div class="w-full max-w-5xl flex justify-end ">
+          <div class="w-full max-w-sm relative">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
             <magnifier />
-          </div>  
-          <input type="text" placeholder="Search..." class="w-full max-w-sm border border-gray-100 rounded px-3 py-3 pl-10 font-mono text-xs text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-400 focus:border-primary-500 focus:ring-primary-400" />
+            </div>  
+            <input type="text" placeholder="Search..." class="w-full border border-gray-100 rounded px-3 py-3 pl-10 font-mono text-xs text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-400 focus:border-primary-500 focus:ring-primary-400" />
+          </div>
         </div>
       </header>
       <main class="px-6 py-12">
