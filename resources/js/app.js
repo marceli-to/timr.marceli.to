@@ -3,7 +3,7 @@ import './bootstrap';
 import '../css/app.css'; 
 
 // tiktok.js
-import { tikTok } from './vendor/tikTok.js';
+import { tikTok } from './plugins/tikTok.js';
 tikTok();
 
 // Vue
@@ -14,6 +14,13 @@ const app = createApp(App);
 // Axios
 import VueAxios from "vue-axios";
 app.use(VueAxios, axios);
+
+// Axios interceptors
+import './plugins/interceptor';
+
+// Pinia store
+import { createPinia } from "pinia";
+app.use(createPinia());
 
 // Mount app
 app.mount("#app");

@@ -3,7 +3,7 @@
     <nav class="bg-white border-r border-gray-100 w-auto p-4 pr-6 pt-6 flex flex-col justify-between items-start group">
       <div class="w-full">
         <logo class="w-32 h-auto block" />
-        <div class="mt-8 mb-2 font-mono text-xs text-gray-300 uppercase tracking-widest">Track</div>
+        <div class="mt-8 mb-2 font-mono text-xs text-gray-400 uppercase tracking-widest">Track</div>
         <ul class="mb-6 block w-full">
           <li class="block w-full">
             <a href="" title="Timer" class="inline-flex items-center w-auto p-3 pr-4 -ml-2 text-gray-900 hover:bg-gray-50 rounded-full font-sans text-sm font-semi hover:text-primary-600">
@@ -12,7 +12,7 @@
             </a>
           </li>
         </ul>
-        <div class="mt-6 mb-2 font-mono text-xs text-gray-300 uppercase tracking-widest">Manage</div>
+        <div class="mt-6 mb-2 font-mono text-xs text-gray-400 uppercase tracking-widest">Manage</div>
         <ul class="mb-6 space-y-2 block w-full">
           <li class="block w-full">
             <a href="" title="Projects" class="is-active inline-flex items-center w-auto p-3 pr-4 -ml-2 text-gray-900 rounded-full font-sans text-sm font-semi hover:bg-gray-50 is-active:bg-gray-50 hover:text-primary-600">
@@ -27,7 +27,7 @@
             </a>
           </li>
         </ul>
-        <div class="mt-6 mb-2 font-mono text-xs text-gray-300 uppercase tracking-widest">Backoffice</div>
+        <div class="mt-6 mb-2 font-mono text-xs text-gray-400 uppercase tracking-widest">Backoffice</div>
         <ul class="mb-6 space-y-2 block w-full">
           <li class="block w-full">
             <a href="" title="Projects" class="inline-flex items-center w-auto p-3 pr-4 -ml-2 text-gray-900 hover:bg-gray-50 rounded-full font-sans text-sm font-semi hover:text-primary-600">
@@ -44,6 +44,9 @@
         </ul>
       </div>
       <div class="w-full">
+        <div class="font-mono text-xs">
+          {{ user.name }}
+        </div>
         <form action="logout" method="POST" class="block w-full">
           <a href="" @click.prevent="logout()"  title="Logout" class="inline-flex items-center w-auto p-3 pr-4 -ml-2 text-gray-900 hover:bg-gray-50 rounded-full font-sans text-sm font-semi hover:text-primary-600">
             <logout />
@@ -59,7 +62,7 @@
             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
               <magnifier />
             </div>  
-            <input type="text" placeholder="Search..." class="w-44 focus:w-64 border border-gray-100 rounded px-3 py-3 pl-10 font-mono text-xs text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-400 focus:border-primary-500 focus:ring-primary-400" />
+            <input type="text" placeholder="Search..." class="w-44 focus:w-64 border border-gray-100 rounded px-3 py-3 pl-10 font-sans text-sm text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-500 placeholder:uppercase tracking-wider focus:border-primary-500 focus:ring-primary-400" />
           </div>
           <button class="bg-primary-500 block border border-primary-500 rounded-sm px-4 py-2 text-white text-sm relative">
             Add client
@@ -70,10 +73,10 @@
         <div class="w-full max-w-5xl rounded border border-gray-100 bg-white">
           <table class="w-full rounded">
             <thead class="text-sm border-b border-gray-100">
-              <th class="text-left text-gray-300 text-xs uppercase font-mono tracking-widest p-4">Name</th>
-              <th class="text-left text-gray-300 text-xs uppercase font-mono tracking-widest p-4">Ort</th>
-              <th class="text-left text-gray-300 text-xs uppercase font-mono tracking-widest p-4">Status</th>
-              <th class="text-left text-gray-300 text-xs uppercase font-mono tracking-widest p-4">&nbsp;</th>
+              <th class="text-left text-gray-400 text-xs uppercase font-mono tracking-widest p-4">Name</th>
+              <th class="text-left text-gray-400 text-xs uppercase font-mono tracking-widest p-4">Ort</th>
+              <th class="text-left text-gray-400 text-xs uppercase font-mono tracking-widest p-4">Status</th>
+              <th class="text-left text-gray-400 text-xs uppercase font-mono tracking-widest p-4">&nbsp;</th>
             </thead>
             <tbody class="text-sm">
               <tr class="border-b border-gray-100 group">
@@ -125,6 +128,7 @@ import UserGroup from "@/components/icons/UserGroup.vue";
 import Receipt from "@/components/icons/Receipt.vue";
 import Document from "@/components/icons/Document.vue";
 import Magnifier from "@/components/icons/Magnifier.vue";
+import { useUserStore } from '@/stores/user';
 
 export default {
 
@@ -141,6 +145,7 @@ export default {
 
   data() {
     return {
+      user: useUserStore(),
       routes: {
         base: '/',
         logout: '/logout',
@@ -148,7 +153,21 @@ export default {
     };
   },
 
+  mounted() {
+    this.getUser();
+  },
+
   methods: {
+    getUser() {
+      if (this.user) {
+        this.axios.get(`/api/user`).then(response => {
+          const store = useUserStore();
+          store.name = response.data.name;
+          store.email = response.data.email;
+        });
+      }
+    },
+
     logout() {
       NProgress.start();
       this.axios.post(this.routes.logout).then(response => {

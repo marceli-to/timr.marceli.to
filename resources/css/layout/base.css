@@ -1,0 +1,12 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+  overflow-y: scroll;
+}
+
+body {
+  @apply text-black;
+  scroll-behavior: smooth;
+}
+
+/* * { background: rgb(0 100 0 / 0.05) !important; } */
