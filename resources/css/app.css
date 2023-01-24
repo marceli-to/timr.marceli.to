@@ -1,6 +1,6 @@
-@import "webfonts.css";
+@import "typo/webfonts.css";
 @import "views/auth.css";
-@import "views/vendor/nprogress.css";
+@import "vendor/nprogress.css";
 
 @tailwind base;
 @tailwind components;

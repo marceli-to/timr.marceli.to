@@ -15,7 +15,7 @@
         <div class="mt-6 mb-2 font-mono text-xs text-gray-300 uppercase tracking-widest">Manage</div>
         <ul class="mb-6 space-y-2 block w-full">
           <li class="block w-full">
-            <a href="" title="Projects" class="inline-flex items-center w-auto p-3 pr-4 -ml-2 text-gray-900 hover:bg-gray-50 rounded-full font-sans text-sm font-semi hover:text-primary-600">
+            <a href="" title="Projects" class="is-active inline-flex items-center w-auto p-3 pr-4 -ml-2 text-gray-900 rounded-full font-sans text-sm font-semi hover:bg-gray-50 is-active:bg-gray-50 hover:text-primary-600">
               <folder />
               <div class="ml-2">Projects</div>
             </a>
@@ -55,13 +55,15 @@
     <div class="bg-gray-50 flex-1">
       <header class="h-12 p-6 pt-4">
         <div class="w-full max-w-5xl flex items-center justify-between">
-          <h2 class="text-xs font-mono font-bold text-primary">Clients</h2>
-          <div class="w-full max-w-sm relative">
+          <div class=" max-w-sm relative">
             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
-            <magnifier />
+              <magnifier />
             </div>  
-            <input type="text" placeholder="Search..." class="w-full border border-gray-100 rounded px-3 py-3 pl-10 font-mono text-xs text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-400 focus:border-primary-500 focus:ring-primary-400" />
+            <input type="text" placeholder="Search..." class="w-44 focus:w-64 border border-gray-100 rounded px-3 py-3 pl-10 font-mono text-xs text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-400 focus:border-primary-500 focus:ring-primary-400" />
           </div>
+          <button class="bg-primary-500 block border border-primary-500 rounded-sm px-4 py-2 text-white text-sm relative">
+            Add client
+          </button>
         </div>
       </header>
       <main class="px-6 py-12">
