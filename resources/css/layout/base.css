@@ -5,7 +5,7 @@ html {
 }
 
 body {
-  @apply text-black;
+  @apply text-gray-900;
   scroll-behavior: smooth;
 }
 

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { toast } from 'vue3-toastify';
 import 'vue3-toastify/dist/index.css';
+import NProgress from 'nprogress';
 
 const toastConfig = {
   position: toast.POSITION.BOTTOM_RIGHT,
@@ -9,26 +10,29 @@ const toastConfig = {
 };
 
 /**
- * Intercept responses
+ * Interceptor for responses
  */
 axios.interceptors.response.use(function (response) {
-  // Any status code that lie within the range of 2xx cause this function to trigger
-  return response;
-}, function (error) {
-  // Any status codes that falls outside the range of 2xx cause this function to trigger
-  toast.error(`${error.message} (${error.response.status})`, toastConfig);
-  return Promise.reject(error);
-});
-
+    NProgress.done();
+    return response;
+  }, 
+  function (error) {
+    toast.error(`${error.message} (${error.response.status})`, toastConfig);
+    NProgress.done();
+    return Promise.reject(error);
+  }
+);
 
 /**
- * Intercept requests
+ * Interceptor for requests
  */
 axios.interceptors.request.use(function (config) {
-  // Do something before request is sent
-  return config;
-}, function (error) {
-  // Show a toast with the error code and error message
-  toast.error(`${error.response.status} ${error.message}`, toastConfig);
-  return Promise.reject(error);
-});
+    NProgress.start();
+    return config;
+  }, 
+  function (error) {
+    toast.error(`Request error...`, toastConfig);
+    NProgress.done();
+    return Promise.reject(error);
+  }
+);

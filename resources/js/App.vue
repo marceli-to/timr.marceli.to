@@ -62,9 +62,9 @@
             <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
               <magnifier />
             </div>  
-            <input type="text" placeholder="Search..." class="w-44 focus:w-64 border border-gray-100 rounded px-3 py-3 pl-10 font-sans text-sm text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-500 placeholder:uppercase tracking-wider focus:border-primary-500 focus:ring-primary-400" />
+            <input type="text" placeholder="Search..." class="w-48 border border-gray-100 rounded px-3 py-2 pl-10 font-sans text-sm text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-500 placeholder:uppercase placeholder:tracking-wider focus:border-transparent focus:ring-0 focus:shadow-sm" />
           </div>
-          <button class="bg-primary-500 block border border-primary-500 rounded-sm px-4 py-2 text-white text-sm relative">
+          <button class="bg-primary-500 hover:bg-gray-900 block border border-primary-500 hover:border-gray-900 rounded-sm px-4 py-2 text-white text-sm relative">
             Add client
           </button>
         </div>
@@ -159,7 +159,7 @@ export default {
 
   methods: {
     getUser() {
-      if (this.user) {
+      if (!this.user.name) {
         this.axios.get(`/api/user`).then(response => {
           const store = useUserStore();
           store.name = response.data.name;
@@ -169,9 +169,7 @@ export default {
     },
 
     logout() {
-      NProgress.start();
       this.axios.post(this.routes.logout).then(response => {
-        NProgress.done();
         document.location.href = this.routes.base;
       });
     }
