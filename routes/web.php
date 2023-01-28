@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum', 'verified')->group(function() {
-  Route::get('/', function () {
+  Route::get('/{any?}', function () {
     return view('app');
   });
 });

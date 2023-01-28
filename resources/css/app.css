@@ -1,6 +1,7 @@
 @import "typo/webfonts.css";
 
 @import "layout/base";
+@import "layout/navigation";
 
 @import "views/auth.css";
 

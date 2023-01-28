@@ -22,5 +22,9 @@ import './plugins/interceptor';
 import { createPinia } from "pinia";
 app.use(createPinia());
 
+// Router
+import router from "@/config/router";
+app.use(router);
+
 // Mount app
 app.mount("#app");
