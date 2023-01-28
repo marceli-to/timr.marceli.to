@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen">
-    <nav class="bg-white border-r border-gray-100 w-auto p-4 pr-6 pt-6 flex flex-col justify-between items-start group">
+    <nav class="bg-white border-r-2 border-primary-200/50 w-auto p-4 pr-6 pt-6 flex flex-col justify-between items-start group">
       <div class="w-full">
         <logo class="w-32 h-auto block" />
         <div class="mt-8 mb-2 font-mono text-xs text-gray-400 uppercase tracking-widest">Track</div>
@@ -59,19 +59,22 @@
       <header class="h-12 p-6 pt-4">
         <div class="w-full max-w-5xl flex items-center justify-between">
           <div class=" max-w-sm relative">
-            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-primary-500">
               <magnifier />
             </div>  
-            <input type="text" placeholder="Search..." class="w-48 border border-gray-100 rounded px-3 py-2 pl-10 font-sans text-sm text-gray-800 placeholder:font-mono placeholder:font-light placeholder:text-xs placeholder:text-gray-500 placeholder:uppercase placeholder:tracking-wider focus:border-transparent focus:ring-0 focus:shadow-sm" />
+            <input type="text" placeholder="Search..." class="w-48 border-transparent shadow-inner shadow shadow-primary-200 focus:shadow-md focus:shadow-primary-200 rounded-lg px-3 py-3 pl-10 font-sans text-sm text-gray-900 placeholder:font-sans placeholder:text-sm placeholder:text-primary-500  focus:border-transparent focus:ring-0" />
           </div>
-          <button class="bg-primary-500 hover:bg-gray-900 block border border-primary-500 hover:border-gray-900 rounded-sm px-4 py-2 text-white text-sm relative">
-            Add client
+          <button class="bg-white block shadow-inner shadow shadow-primary-200 hover:shadow-md hover:shadow-primary-200 rounded-lg px-4 py-3 pl-10 text-primary-500 text-sm relative">
+            <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-primary-500">
+              <user-group class="w-4 h-4" />
+            </div>
+            <span class="block">Add client</span>
           </button>
         </div>
       </header>
       <main class="px-6 py-12">
-        <div class="w-full max-w-5xl rounded border border-gray-100 bg-white">
-          <table class="w-full rounded">
+        <div class="w-full max-w-5xl shadow-inner shadow shadow shadow-primary-200 rounded-lg bg-white py-2">
+          <table class="w-full">
             <thead class="text-sm border-b border-gray-100">
               <th class="text-left text-gray-400 text-xs uppercase font-mono tracking-widest p-4">Name</th>
               <th class="text-left text-gray-400 text-xs uppercase font-mono tracking-widest p-4">Ort</th>
@@ -79,7 +82,7 @@
               <th class="text-left text-gray-400 text-xs uppercase font-mono tracking-widest p-4">&nbsp;</th>
             </thead>
             <tbody class="text-sm">
-              <tr class="border-b border-gray-100 group">
+              <tr class="border-b border-gray-100">
                 <td class="bg-white group-hover:bg-gray-50 p-4">Agentur für Kommunikation</td>
                 <td class="bg-white group-hover:bg-gray-50 p-4">Zürich</td>
                 <td class="bg-white group-hover:bg-gray-50 p-4">
@@ -128,6 +131,8 @@ import UserGroup from "@/components/icons/UserGroup.vue";
 import Receipt from "@/components/icons/Receipt.vue";
 import Document from "@/components/icons/Document.vue";
 import Magnifier from "@/components/icons/Magnifier.vue";
+import Plus from "@/components/icons/Plus.vue";
+
 import { useUserStore } from '@/stores/user';
 
 export default {
@@ -141,6 +146,7 @@ export default {
     Receipt,
     Document,
     Magnifier,
+    Plus,
   },
 
   data() {

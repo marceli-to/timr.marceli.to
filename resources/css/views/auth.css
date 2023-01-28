@@ -12,9 +12,9 @@
 }
 
 .auth a.helper-link {
-  @apply inline-block mt-6 text-sm text-primary-400 hover:underline underline-offset-4
+  @apply inline-block text-sm text-primary-400 hover:underline underline-offset-4
 }
 
 .auth form {
-  @apply bg-white shadow-sm border border-gray-100 rounded-md mt-8 py-8 px-8 pt-6
+  @apply bg-white shadow-lg shadow-gray-200 rounded-xl py-8 px-8
 }
