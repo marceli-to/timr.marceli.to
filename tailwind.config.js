@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
@@ -9,6 +9,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      
       colors: {
         'primary': {
           '50': '#f3f1ff',
@@ -23,6 +24,7 @@ module.exports = {
           '900': '#4b05ad',
         },
       },
+
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
         mono: ['IBM Plex Mono', ...defaultTheme.fontFamily.mono],
@@ -32,4 +34,4 @@ module.exports = {
   plugins: [
     require('@tailwindcss/forms'),
   ],
-}
+};

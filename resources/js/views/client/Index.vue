@@ -14,42 +14,42 @@
       <content-section>
         <table-container>
           <template #table-head>
-            <table-head-item>Name</table-head-item>
-            <table-head-item>Ort</table-head-item>
-            <table-head-item>Status</table-head-item>
-            <table-head-item>&nbsp;</table-head-item>
+            <table-head>Name</table-head>
+            <table-head>Ort</table-head>
+            <table-head>Status</table-head>
+            <table-head>&nbsp;</table-head>
           </template>
           <template #table-body>
-            <tr class="border-b border-gray-100 group">
-              <td class="bg-white group-hover:bg-gray-50 p-4">Agentur für Kommunikation</td>
-              <td class="bg-white group-hover:bg-gray-50 p-4">Zürich</td>
-              <td class="bg-white group-hover:bg-gray-50 p-4">
-                <div class="bg-yellow-200 text-yellow-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Pendent</div>
-              </td>
-              <td class="text-right bg-white group-hover:bg-gray-50 p-4">
+            <table-row>
+              <table-cell>Agentur für Kommunikation</table-cell>
+              <table-cell>Zürich</table-cell>
+              <table-cell>
+                <pill class="is-warning">Pendent</pill>
+              </table-cell>
+              <table-cell class="text-right">
                 <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
-              </td>
-            </tr>
-            <tr class="border-b border-gray-100 group">
-              <td class="bg-white group-hover:bg-gray-50 p-4">AhornGarten</td>
-              <td class="bg-white group-hover:bg-gray-50 p-4">Russikon</td>
-              <td class="bg-white group-hover:bg-gray-50 p-4">
-                <div class="bg-green-200 text-green-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Aktiv</div>
-              </td>
-              <td class="text-right bg-white group-hover:bg-gray-50 p-4">
+              </table-cell>
+            </table-row>
+            <table-row>
+              <table-cell>AhornGarten</table-cell>
+              <table-cell>Russikon</table-cell>
+              <table-cell>
+                <pill class="is-success">Aktiv</pill>
+              </table-cell>
+              <table-cell class="text-right">
                 <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
-              </td>
-            </tr>
-            <tr class="group">
-              <td class="bg-white group-hover:bg-gray-50 p-4">Cham Group AG</td>
-              <td class="bg-white group-hover:bg-gray-50 p-4">Winterthur</td>
-              <td class="bg-white group-hover:bg-gray-50 p-4">
-                <div class="bg-red-200 text-red-600 text-xs rounded-full px-3 py-1 font-mono inline-flex w-auto">Inaktiv</div>
-              </td>
-              <td class="text-right bg-white group-hover:bg-gray-50 p-4">
+              </table-cell>
+            </table-row>
+            <table-row>
+              <table-cell>Cham Group AG</table-cell>
+              <table-cell>Winterthur</table-cell>
+              <table-cell>
+                <pill class="is-danger">Inaktiv</pill>
+              </table-cell>
+              <table-cell class="text-right">
                 <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
-              </td>
-            </tr>
+              </table-cell>
+            </table-row>
           </template>
         </table-container>
       </content-section>
@@ -61,10 +61,13 @@ import Content from "@/components/layout/Content.vue";
 import ContentHeader from "@/components/layout/ContentHeader.vue";
 import ContentMain from "@/components/layout/ContentMain.vue";
 import ContentSection from "@/components/layout/ContentSection.vue";
+import TableContainer from "@/components/ui/table/Table.vue";
+import TableHead from "@/components/ui/table/Th.vue";
+import TableRow from "@/components/ui/table/Tr.vue";
+import TableCell from "@/components/ui/table/Td.vue";
 import ButtonSecondary from "@/components/buttons/Secondary.vue";
 import Search from "@/components/ui/Search.vue";
-import TableContainer from "@/components/ui/table/Table.vue";
-import TableHeadItem from "@/components/ui/table/Th.vue";
+import Pill from "@/components/ui/Pill.vue";
 import UserGroup from "@/components/icons/UserGroup.vue";
 
 export default {
@@ -74,8 +77,11 @@ export default {
     ContentMain,
     ContentSection,
     Search,
+    Pill,
     TableContainer,
-    TableHeadItem,
+    TableHead,
+    TableRow,
+    TableCell,
     ButtonSecondary,
     UserGroup
   }
