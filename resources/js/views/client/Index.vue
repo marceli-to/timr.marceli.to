@@ -1,7 +1,10 @@
 <template>
   <content>
     <content-header>
-      <search />
+      <search 
+        @change="doSearch($event)" 
+        @reset="getClients()"
+      />
       <button-secondary 
         @click="$router.push('/projects')" 
         :label="'Create client'">
@@ -15,48 +18,28 @@
         <table-container>
           <template #table-head>
             <table-head>Name</table-head>
-            <table-head>Ort</table-head>
-            <table-head>Status</table-head>
+            <table-head>Acronym</table-head>
+            <table-head>City</table-head>
             <table-head>&nbsp;</table-head>
           </template>
           <template #table-body>
-            <table-row>
-              <table-cell>Agentur für Kommunikation</table-cell>
-              <table-cell>Zürich</table-cell>
-              <table-cell>
-                <pill class="is-warning">Pendent</pill>
-              </table-cell>
-              <table-cell class="text-right">
-                <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
-              </table-cell>
-            </table-row>
-            <table-row>
-              <table-cell>AhornGarten</table-cell>
-              <table-cell>Russikon</table-cell>
-              <table-cell>
-                <pill class="is-success">Aktiv</pill>
-              </table-cell>
-              <table-cell class="text-right">
-                <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
-              </table-cell>
-            </table-row>
-            <table-row>
-              <table-cell>Cham Group AG</table-cell>
-              <table-cell>Winterthur</table-cell>
-              <table-cell>
-                <pill class="is-danger">Inaktiv</pill>
-              </table-cell>
-              <table-cell class="text-right">
-                <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
-              </table-cell>
-            </table-row>
+            <template v-for="client in clients" :key="client.id">
+              <table-row>
+                <table-cell>{{ client.name }}</table-cell>
+                <table-cell>{{ client.acronym }}</table-cell>
+                <table-cell>{{ client.city }}</table-cell>
+                <table-cell class="text-right">
+                  <a href="" class="text-xs text-primary-400 hover:underline underline-offset-2">Bearbeiten</a>
+                </table-cell>
+              </table-row>
+            </template>
           </template>
         </table-container>
       </content-section>
     </content-main>
   </content>
 </template>
-<script>
+<script setup>
 import Content from "@/components/layout/Content.vue";
 import ContentHeader from "@/components/layout/ContentHeader.vue";
 import ContentMain from "@/components/layout/ContentMain.vue";
@@ -69,21 +52,23 @@ import ButtonSecondary from "@/components/buttons/Secondary.vue";
 import Search from "@/components/ui/Search.vue";
 import Pill from "@/components/ui/Pill.vue";
 import UserGroup from "@/components/icons/UserGroup.vue";
+import useClients from "@/composables/clients";
+import { onMounted } from "vue";
+const { clients, getClients, destroyClient, searchClients } = useClients();
 
-export default {
-  components: {
-    Content,
-    ContentHeader,
-    ContentMain,
-    ContentSection,
-    Search,
-    Pill,
-    TableContainer,
-    TableHead,
-    TableRow,
-    TableCell,
-    ButtonSecondary,
-    UserGroup
+onMounted(getClients);
+
+const deleteClient = async (id) => {
+  if (!window.confirm('Are you sure?')) {
+    return
   }
+  await destroyClient(id);
+  await getClients();
 }
+
+const doSearch = async (keyword) => {
+  console.log(keyword.length)
+  await searchClients(keyword);
+}
+
 </script>

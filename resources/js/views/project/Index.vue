@@ -56,7 +56,7 @@
     </content-main>
   </content>
 </template>
-<script>
+<script setup>
 import Content from "@/components/layout/Content.vue";
 import ContentHeader from "@/components/layout/ContentHeader.vue";
 import ContentMain from "@/components/layout/ContentMain.vue";
@@ -69,21 +69,4 @@ import ButtonSecondary from "@/components/buttons/Secondary.vue";
 import Folder from "@/components/icons/Folder.vue";
 import Search from "@/components/ui/Search.vue";
 import Pill from "@/components/ui/Pill.vue";
-
-export default {
-  components: {
-    Content,
-    ContentHeader,
-    ContentMain,
-    ContentSection,
-    TableContainer,
-    TableHead,
-    TableRow,
-    TableCell,
-    Search,
-    Folder,
-    Pill,
-    ButtonSecondary,
-  }
-}
 </script>
