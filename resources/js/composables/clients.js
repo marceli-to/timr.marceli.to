@@ -1,6 +1,8 @@
 import { ref } from 'vue';
 import axios from "axios";
 import { useRouter } from 'vue-router';
+import { useLoadingStateStore } from '@/stores/loadingState';
+import { storeToRefs } from 'pinia';
 
 export default function useClients() {
   const clients = ref([]);
@@ -8,13 +10,27 @@ export default function useClients() {
   const router = useRouter();
   const errors = ref('');
 
+  const store = storeToRefs(useLoadingStateStore());
+
+  const routes = {
+    get: `/api/clients`,
+    search: `/api/clients/search`
+  };
+
   const getClients = async () => {
     let response = await axios.get(`/api/clients`);
     clients.value = response.data;
+    store.loaded.value = true;
+
+    // axios.get(`${routes.get}`).then(response => {
+    //   clients.value = response.data;
+    //   store.loaded.value = true;
+    // });
+
   };
 
   const searchClients = async (keyword) => {
-    let response = await axios.get(`/api/clients/search/${keyword}`);
+    let response = await axios.get(`${routes.search}/${keyword}`);
     clients.value = response.data;
   };
 

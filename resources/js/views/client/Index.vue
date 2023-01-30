@@ -1,5 +1,5 @@
 <template>
-  <content>
+  <content v-if="store.loaded.value === true">
     <content-header>
       <search 
         @change="doSearch($event)" 
@@ -54,9 +54,19 @@ import Pill from "@/components/ui/Pill.vue";
 import UserGroup from "@/components/icons/UserGroup.vue";
 import useClients from "@/composables/clients";
 import { onMounted } from "vue";
+import { useLoadingStateStore } from '@/stores/loadingState';
+import { storeToRefs } from 'pinia';
+
 const { clients, getClients, destroyClient, searchClients } = useClients();
 
-onMounted(getClients);
+const store = storeToRefs(useLoadingStateStore());
+store.loaded.value = false;
+
+//onMounted(getClients);
+onMounted(() => {
+  getClients();
+});
+
 
 const deleteClient = async (id) => {
   if (!window.confirm('Are you sure?')) {
